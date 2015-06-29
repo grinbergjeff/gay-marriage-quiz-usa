@@ -1,0 +1,55 @@
+body {
+	font-family: 'Lato', sans-serif;
+	background-image: url('/images/northern-lights.jpeg');
+	background-color: #BD5C3C;
+	background-repeat: no-repeat;
+	background-size: cover;
+	text-align: center;
+	color: #F5F5F5
+}
+.headertop{
+	font-size: 300%;
+}
+.headercontain {
+	padding-bottom: 1px;
+	background: rgba(0, 0, 0, 0.4);
+	border-radius: 8px;
+	width: 70%;
+	text-align: center;
+	margin: 0 auto;
+}
+.questions {
+	width: 70%;
+	margin: 0 auto;
+	height: 26rem;
+}
+#q1 {
+	padding-top: 20px;	
+	height: 70px;
+	background: rgba(0, 0, 0, 0.4);
+	border-radius: 8px;
+}
+#answers {
+	height: 9rem;	
+}
+h3 {
+	margin-top: 30px;
+	padding: 15px;
+	line-height: 50%;
+	background: rgba(0, 0, 0, 0.4);
+	border-radius: 8px;
+}
+#flag {
+	height: 60px;
+	width: 30%;
+	margin: 0 auto;
+}
+#next {
+	background-color: white;	
+}
+p {
+	background: rgba(0, 0, 0, 0.4);
+	font-size: 20px;
+	width: 30%;
+	margin: 0 auto;
+}
