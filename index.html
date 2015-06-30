@@ -9,13 +9,19 @@
 	<!-- Google Font -->
 	<link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
 	<!-- Javascript/JQuery-->
-	<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 	<script src="js/app.js"></script>
 	<!-- Favicon -->
 	<link rel="icon" type="image/x-icon" href="images/favicon.ico">
 </head>
 
 <body>
+<!-- Beginning Section -->
+<div id="begin">
+	<p class="intro">Hello!</p>
+	 <p class="intro">This is a quiz based on your knowledge of the same-sex marriage legalization that recently occured in the USA.</p>
+	<p class="intro"> Let's see how much you know!</p>
+</div>
 <!-- Header Section -->
 	<div class="headercontain">
 		<h1 class="headertop">Same-Sex Marriage Legalization in the USA</h1>
@@ -32,8 +38,9 @@
 				<h3>June 25rd, 2015</h3>
 				<h3>June 26rd, 2015</h3>
 			</div>
-	</div>	
-	<p>Question 1</p>
+			<p id='qnum'>Question 1</p>
+	</div>
+	<button type="button" id="begin-button">Begin!</button>	
 	<button type="button" id="next">Next</button>
 	<div id="flag">
 		<div id="red"></div>

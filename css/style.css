@@ -7,6 +7,17 @@ body {
 	text-align: center;
 	color: #F5F5F5
 }
+#begin {
+	background: rgba(0, 0, 0, 0.4);
+	margin: 70px;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+.intro {
+	font-size: 25px;	
+}
 .headertop{
 	font-size: 300%;
 }
@@ -44,18 +55,16 @@ h3 {
 	width: 30%;
 	margin: 0 auto;
 }
-#next {
-	background-color: white;	
-}
-p {
+#qnum {
 	background: rgba(0, 0, 0, 0.4);
 	font-size: 20px;
 	width: 30%;
 	margin: 0 auto;
 	border-radius: 4px;
 }
-#next {
+#next, #begin-button {
 	background: rgba(0, 0, 0, 0.4);
+	margin: 10px;
 	color: white;
 	border: 2px solid white;
 	border-radius: 5px;

@@ -1,7 +1,5 @@
-$(document).ready(function(){
-	
+$(document).ready(function(){	
 // Declare objects (questions, answers)
-	
 	var questions = [
 		{ _id: 0,
 		 question: "On what day was same-sex marriage legalized for all 50 states in the USA?",
@@ -32,8 +30,19 @@ $(document).ready(function(){
 		 question: "What was the last line of the concluding paragraph from the majority opinion?",
 		 answers: ['They ask for equal dignity in the eyes of the law','The Constitution grants them that right.','It is <i>so</i> ordered.','God bless America.','Same Love.'],
 		 correctAnswer: 'It is <i>so</i> ordered.'
-		},
+		}];
+	//Functions
+	introduction();
 	
 	
 	
 });
+//Function that introduces the quiz
+function introduction() {
+	$('#begin, .headercontain, .questions, #next').hide();
+	$('#begin, #begin-button').hide().fadeIn(2000);
+	$('#begin-button').mousedown(function() {
+		$('#begin, #begin-button').fadeOut(1500, function() {
+			$('.headercontain, .questions, #next').fadeIn('1500'); });
+	});
+}
