@@ -1,6 +1,6 @@
 body {
 	font-family: 'Lato', sans-serif;
-	background-image: url('images/northern-lights.jpeg');
+	background-image: url('/images/northern-lights.jpeg');
 	background-color: #BD5C3C;
 	background-repeat: no-repeat;
 	background-size: cover;
