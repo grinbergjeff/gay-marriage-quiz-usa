@@ -32,17 +32,32 @@ $(document).ready(function(){
 		 correctAnswer: 'It is <i>so</i> ordered.'
 		}];
 	//Functions
-	introduction();
+	introduction(questions);
 	
 	
 	
 });
 //Function that introduces the quiz
-function introduction() {
-	$('#begin, .headercontain, .questions, #next').hide();
+function introduction(arrayname) {
+	$('#begin, .headercontain, .questions, #next, #qnum').hide();
 	$('#begin, #begin-button').hide().fadeIn(2000);
 	$('#begin-button').mousedown(function() {
 		$('#begin, #begin-button').fadeOut(1500, function() {
 			$('.headercontain, .questions, #next').fadeIn('1500'); });
+	var qnumber = 0;
+	insertquestion(arrayname ,qnumber);
 	});
+}
+//function to insert questions from objects
+function insertquestion(arrayname ,numberval) {
+	for (var i = 0; i < arrayname.length; i++){
+		if (i === numberval) {
+			$('.questions').append('<h2 id="q">' + arrayname[i].question + '</h2>');
+		for (var j = 0; j < 5; j++) {
+			$('#answers').append('<h3>' + arrayname[i].answers[j] + '</h3>');
+			j++;
+			}
+			i++;
+		}
+	}
 }
