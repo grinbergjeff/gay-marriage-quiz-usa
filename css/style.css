@@ -19,7 +19,7 @@ body {
 	font-size: 25px;	
 }
 .headertop{
-	font-size: 300%;
+	font-size: 250%;
 }
 .headercontain {
 	padding-bottom: 1px;
@@ -29,19 +29,22 @@ body {
 	text-align: center;
 	margin: 0 auto;
 }
-.questions {
+.question-container {
+	height: 26rem;
 	width: 70%;
 	margin: 0 auto;
-	height: 26rem;
+}
+.questions {
+	width: 90%;
+	height: 20%;
+	margin: 0 auto;
 }
 #q {
-	padding-top: 20px;	
-	height: 70px;
+	margin-top: 26px;
+	padding-top: 20px;
+	height: 4.7rem;
 	background: rgba(0, 0, 0, 0.4);
 	border-radius: 8px;
-}
-#answers {
-	height: 9rem;	
 }
 h3 {
 	margin-top: 30px;

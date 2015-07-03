@@ -35,18 +35,18 @@ $(document).ready(function(){
 	qnumber = 0;
 	//Functions
 	introduction(questions);
-	nextquestion(qnumber)
+	nextquestion(questions ,qnumber)
 	
 	
 	
 });
 //Function that introduces the quiz
 function introduction(arrayname) {
-	$('#begin, .headercontain, .questions, #next, #qnum').hide();
+	$('#begin, .headercontain, .question-container, #next, #qnum').hide();
 	$('#begin, #begin-button').hide().fadeIn(2000);
 	$('#begin-button').mousedown(function() {
 		$('#begin, #begin-button').fadeOut(1500, function() {
-			$('.headercontain, .questions, #next').fadeIn('1500'); 
+			$('.headercontain, .question-container, #next').fadeIn('1500'); 
 		});
 	qnumber = 0;
 	insertquestion(arrayname, qnumber);
@@ -54,14 +54,11 @@ function introduction(arrayname) {
 }
 //Function to insert questions and answers from objects
 function insertquestion(arrayname, numberq) {
-	//$('.questions, #answers').empty();
-/*	$('#next').mousedown(function() {
-			numberq++;
-		});*/
+	$('.questions, #answers').empty();
 	console.log('starting forloop');
 	for (var i = 0; i < arrayname.length; i++){
 		if (i === numberq) {
-			console.log('i === numberq');
+			console.log('loading question ' + i);
 			$('.questions').prepend('<h2 id="q">' + arrayname[i].question + '</h2>');
 		for (var j = 0; j <= 4; j++) {
 			console.log('loading answer' + arrayname[i].answers[j]);
@@ -72,10 +69,10 @@ function insertquestion(arrayname, numberq) {
 	}
 }
 //Function to increment what question the user is on when when they click next
-function nextquestion(questionnumber) {
+function nextquestion(arrayname ,questionnumber) {
 	$('#next').mousedown(function() {
 		questionnumber++;
 		console.log('nextquestion....questionnumber is now ' + questionnumber);
-		insertquestion(questions, questionnumber);
+		insertquestion(arrayname, questionnumber);
 	});
 }
