@@ -3,7 +3,7 @@ $(document).ready(function(){
 	var questions = [
 		{ _id: 0,
 		 question: "On what day was same-sex marriage legalized for all 50 states in the USA?",
-		 answers: ['June 23rd, 2015','June 24th, 2015','June 25th, 2015','June 26th, 2015'],
+		 answers: ['June 23rd, 2015','June 24th, 2015','June 25th, 2015','June 26th, 2015','June 27th, 2015'],
 		 correctAnswer: 'June 26th, 2015'
 		},
 		{ _id: 1,
@@ -31,8 +31,11 @@ $(document).ready(function(){
 		 answers: ['They ask for equal dignity in the eyes of the law','The Constitution grants them that right.','It is <i>so</i> ordered.','God bless America.','Same Love.'],
 		 correctAnswer: 'It is <i>so</i> ordered.'
 		}];
+	//Global Variable
+	qnumber = 0;
 	//Functions
 	introduction(questions);
+	nextquestion(qnumber)
 	
 	
 	
@@ -43,21 +46,36 @@ function introduction(arrayname) {
 	$('#begin, #begin-button').hide().fadeIn(2000);
 	$('#begin-button').mousedown(function() {
 		$('#begin, #begin-button').fadeOut(1500, function() {
-			$('.headercontain, .questions, #next').fadeIn('1500'); });
-	var qnumber = 0;
-	insertquestion(arrayname ,qnumber);
+			$('.headercontain, .questions, #next').fadeIn('1500'); 
+		});
+	qnumber = 0;
+	insertquestion(arrayname, qnumber);
 	});
 }
-//function to insert questions from objects
-function insertquestion(arrayname ,numberval) {
+//Function to insert questions and answers from objects
+function insertquestion(arrayname, numberq) {
+	//$('.questions, #answers').empty();
+/*	$('#next').mousedown(function() {
+			numberq++;
+		});*/
+	console.log('starting forloop');
 	for (var i = 0; i < arrayname.length; i++){
-		if (i === numberval) {
-			$('.questions').append('<h2 id="q">' + arrayname[i].question + '</h2>');
-		for (var j = 0; j < 5; j++) {
+		if (i === numberq) {
+			console.log('i === numberq');
+			$('.questions').prepend('<h2 id="q">' + arrayname[i].question + '</h2>');
+		for (var j = 0; j <= 4; j++) {
+			console.log('loading answer' + arrayname[i].answers[j]);
 			$('#answers').append('<h3>' + arrayname[i].answers[j] + '</h3>');
-			j++;
 			}
-			i++;
 		}
+		else {console.log('fail')};
 	}
+}
+//Function to increment what question the user is on when when they click next
+function nextquestion(questionnumber) {
+	$('#next').mousedown(function() {
+		questionnumber++;
+		console.log('nextquestion....questionnumber is now ' + questionnumber);
+		insertquestion(questions, questionnumber);
+	});
 }
