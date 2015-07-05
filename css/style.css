@@ -46,11 +46,22 @@ body {
 	background: rgba(0, 0, 0, 0.4);
 	border-radius: 8px;
 }
-h3 {
+.anschoice:hover {
+	cursor: pointer;
+}
+.anschoice {
 	margin-top: 30px;
 	padding: 15px;
 	line-height: 50%;
 	background: rgba(0, 0, 0, 0.4);
+	border-radius: 8px;
+}
+.select {
+	margin-top: 30px;
+	padding: 15px;
+	line-height: 50%;
+	background-color: #5BB12F;
+	/*border: 1px solid #5BB12F;*/
 	border-radius: 8px;
 }
 #flag {

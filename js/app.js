@@ -28,14 +28,15 @@ $(document).ready(function(){
 		},
 		{ _id: 5,
 		 question: "What was the last line of the concluding paragraph from the majority opinion?",
-		 answers: ['They ask for equal dignity in the eyes of the law','The Constitution grants them that right.','It is <i>so</i> ordered.','God bless America.','Same Love.'],
+		 answers: ['They ask for equal dignity in the eyes of the law.','The Constitution grants them that right.','It is <i>so</i> ordered.','God bless America.','Same Love.'],
 		 correctAnswer: 'It is <i>so</i> ordered.'
 		}];
 	//Global Variable
 	qnumber = 0;
 	//Functions
 	introduction(questions);
-	nextquestion(questions ,qnumber)
+	nextquestion(questions, qnumber);
+	checkanswer();
 	
 	
 	
@@ -62,7 +63,7 @@ function insertquestion(arrayname, numberq) {
 			$('.questions').prepend('<h2 id="q">' + arrayname[i].question + '</h2>');
 		for (var j = 0; j <= 4; j++) {
 			console.log('loading answer' + arrayname[i].answers[j]);
-			$('#answers').append('<h3>' + arrayname[i].answers[j] + '</h3>');
+			$('#answers').append('<h3 class="anschoice">' + arrayname[i].answers[j] + '</h3>');
 			}
 		}
 		else {console.log('fail')};
@@ -74,5 +75,18 @@ function nextquestion(arrayname ,questionnumber) {
 		questionnumber++;
 		console.log('nextquestion....questionnumber is now ' + questionnumber);
 		insertquestion(arrayname, questionnumber);
+	});
+}
+// Function to select answer and check answer after hitting next button
+function checkanswer() {
+	//Indicated Selected Answer
+	$('#answers').on('mousedown', '.anschoice',function() {
+		console.log('Changing selected choice to green');
+		$(this).removeClass().addClass('select');			
+	});
+	//Change selected choice back to original
+	$('#answers').on('mousedown', '.select',function() {
+		console.log('Changing selected choice back to normal');
+		$(this).removeClass().addClass('anschoice');
 	});
 }
