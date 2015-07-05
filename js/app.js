@@ -82,11 +82,12 @@ function checkanswer() {
 	//Indicated Selected Answer
 	$('#answers').on('mousedown', '.anschoice',function() {
 		console.log('Changing selected choice to green');
-		$(this).removeClass().addClass('select');			
+		$(this).toggleClass('select');
+		$(this).siblings().removeClass().addClass('anschoice');
 	});
 	//Change selected choice back to original
 	$('#answers').on('mousedown', '.select',function() {
 		console.log('Changing selected choice back to normal');
-		$(this).removeClass().addClass('anschoice');
+		$(this).toggleClass('anschoice');
 	});
 }
