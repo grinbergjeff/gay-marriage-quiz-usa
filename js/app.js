@@ -109,18 +109,18 @@ function theend(qnumber, correct, arrayname) {
 		console.log('The quiz is over!');
 		$('#next, #qnum').hide();
 		if (correct <= 3) {
-			$('#flag').prepend('<h4> You got ' + correct + ' right. :( Try again! </h4>' );
+			$('<h3> You got ' + correct + ' right. :( Try again! </h3>').insertAfter('#violet');
 		}
 		else if (correct >= 4 && correct < 6) {
-			$('#flag').prepend('<h4> You got ' + correct + ' right! :) Try again! </h4>' );
+			$('<h3> You got ' + correct + ' right! :) Try again! </h3>').insertAfter('#violet');
 		}
 		else {
-			$('#flag').prepend('<h4> Awesome! You got them all  right!');
+			$('<h3> Awesome! You got them all  right!</h3>').insertAfter('#violet');
 		}
 		$('#flag').show();
 	}
 	//Need to allow for reset!
 	$('#reset').mousedown(function() {
-		introduction(arrayname);
+		location.reload();
 	});
 }

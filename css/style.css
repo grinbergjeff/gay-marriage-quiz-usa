@@ -11,10 +11,7 @@ body {
 	/*background: rgba(49, 55, 65, 0.8);*/
 	border-radius: 5px;
 	margin: 70px;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
+	margin: 0 auto;
 }
 .intro {
 	font-size: 25px;	
@@ -70,7 +67,7 @@ body {
 #flag {
 	height: 60px;
 	width: 30%;
-	margin: -250px auto;
+	margin: -400px auto;
 }
 #reset {
 	background-color: transparent;
@@ -93,4 +90,28 @@ body {
 	color: white;
 	border: 2px solid white;
 	border-radius: 5px;
+}
+#red {
+	background-color: #F4696B;
+}
+#orange {
+	background-color: #F6D860;
+}
+#yellow {
+	background-color: #DBDB60;
+}
+#green {
+	background-color: #63C5AB;
+}
+#blue {
+	background-color: #3CCAD1;
+}
+#violet {
+	background-color: #785EBB;
+}
+#violet, #blue, #green, #yellow, #orange, #red {
+	height: 15px;
+	width: 60%;
+	text-align: center;
+	margin: 0 auto;
 }
