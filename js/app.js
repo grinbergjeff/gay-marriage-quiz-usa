@@ -75,23 +75,32 @@ function checkanswer(arrayname, qnumber) {
 	});
 	//Below determines what to do when next button clicked
 	$('#next').mousedown(function() {
+		//Make sure a choice is selected!
 		var userselect = $('.select').text();
 		console.log('userselect is: ' + userselect);
-		if (userselect === arrayname[qnumber].correctAnswer) {
-			correct++;
-			console.log('The user is correct! ' + correct);
+		if ( userselect === '') {
+			console.log('Please select a choice!');	
+			$('#next').avgrund({
+				template: '<p> Please select a choice! </p>'
+			});
 		}
-		else { 
-			console.log('user is wrong');
-			console.log('#correct is: ' + correct);
-			console.log(userselect + ' vs. ' +  arrayname[qnumber].correctAnswer);
+		else { // Check answer
+			if (userselect === arrayname[qnumber].correctAnswer) {
+				correct++;
+				console.log('The user is correct! ' + correct);
+			}
+			else { 
+				console.log('user is wrong');
+				console.log('#correct is: ' + correct);
+				console.log(userselect + ' vs. ' +  arrayname[qnumber].correctAnswer);
+			}
+			// Move on to the next question
+			qnumber++;
+			insertquestion(arrayname, qnumber);
+			console.log('qnumber from checkanswer is now ' + qnumber);
+			theend(qnumber, correct);
 		}
-		// Move on to the next question
-		qnumber++;
-		insertquestion(arrayname, qnumber);
-		console.log('qnumber from checkanswer is now ' + qnumber);
-		theend(qnumber, correct);
-	});
+		});
 }
 //Function to display end results:
 function theend(qnumber, correct) {
@@ -99,13 +108,13 @@ function theend(qnumber, correct) {
 		console.log('The quiz is over!');
 		$('#next, #qnum').hide();
 		if (correct <= 3) {
-			$('#flag').append('<h4> You got ' + correct + 'right. :( Try again! </h4>' );
+			$('#flag').prepend('<h4> You got ' + correct + ' right. :( Try again! </h4>' );
 		}
 		else if (correct >= 4 || correct < 6) {
-			$('#flag').append('<h4> You got ' + correct + 'right! :) Try again! </h4>' );
+			$('#flag').prepend('<h4> You got ' + correct + ' right! :) Try again! </h4>' );
 		}
 		else {
-			$('#flag').append('<h4> Awesome! You got them all right!');
+			$('#flag').prepend('<h4> Awesome! You got them all  right!');
 		}
 		$('#flag').show();
 	}
