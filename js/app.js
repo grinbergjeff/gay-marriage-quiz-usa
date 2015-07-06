@@ -31,12 +31,13 @@ $(document).ready(function(){
 		 answers: ['They ask for equal dignity in the eyes of the law.','The Constitution grants them that right.','It is <i>so</i> ordered.','God bless America.','Same Love.'],
 		 correctAnswer: 'It is <i>so</i> ordered.'
 		}];
-	//Global Variable
-	qnumber = 0;
+	//Global Variables
+	qnumber = 0; // question number
+	correct = 0; // number of answers correct
 	//Functions
 	introduction(questions);
+	checkanswer(questions, qnumber);
 	nextquestion(questions, qnumber);
-	checkanswer();
 	
 	
 	
@@ -73,21 +74,33 @@ function insertquestion(arrayname, numberq) {
 function nextquestion(arrayname ,questionnumber) {
 	$('#next').mousedown(function() {
 		questionnumber++;
-		console.log('nextquestion....questionnumber is now ' + questionnumber);
+		//console.log('nextquestion....questionnumber is now ' + questionnumber);
 		insertquestion(arrayname, questionnumber);
 	});
 }
 // Function to select answer and check answer after hitting next button
-function checkanswer() {
+function checkanswer(arrayname, numberq) {
 	//Indicated Selected Answer
 	$('#answers').on('mousedown', '.anschoice',function() {
-		console.log('Changing selected choice to green');
-		$(this).toggleClass('select');
+		//console.log('Changing selected choice to green');
+		$(this).removeClass().addClass('select');
+		///var selectedchoice = $('.select').text();
+		//console.log('selected choice: ' + selectedchoice);
 		$(this).siblings().removeClass().addClass('anschoice');
 	});
 	//Change selected choice back to original
 	$('#answers').on('mousedown', '.select',function() {
-		console.log('Changing selected choice back to normal');
-		$(this).toggleClass('anschoice');
+		//console.log('Changing selected choice back to normal');
+		$(this).removeClass().addClass('anschoice');
+	});
+	
+	$('#next').mousedown(function() {
+		var userselect = $('.select').text();
+		console.log('userselect is: ' + userselect);
+		if (userselect === arrayname.[numberq].correctAnswer) {
+			correct++;
+			console.log('The user is correct! ' + correct);
+		}
+		else { console.log('user is wrong');}
 	});
 }
