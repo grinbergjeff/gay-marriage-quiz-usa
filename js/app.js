@@ -29,7 +29,7 @@ $(document).ready(function(){
 		{ _id: 5,
 		 question: "What was the last line of the concluding paragraph from the majority opinion?",
 		 answers: ['They ask for equal dignity in the eyes of the law.','The Constitution grants them that right.','It is <i>so</i> ordered.','God bless America.','Same Love.'],
-		 correctAnswer: 'It is <i>so</i> ordered.'
+		 correctAnswer: 'It is so ordered.'
 		}];
 	//Global Variables
 	 qnumber = 0; // question number
@@ -37,18 +37,17 @@ $(document).ready(function(){
 	//Functions
 	introduction(questions);
 	checkanswer(questions, qnumber);
-	//nextquestion(questions, qnumber);
 	
 	
 	
 });
 //Function that introduces the quiz
 function introduction(arrayname) {
-	$('#begin, .headercontain, .question-container, #next, #qnum').hide();
+	$('#begin, .headercontain, .question-container, #next, #qnum, #flag').hide();
 	$('#begin, #begin-button').hide().fadeIn(2000);
 	$('#begin-button').mousedown(function() {
 		$('#begin, #begin-button').fadeOut(1500, function() {
-			$('.headercontain, .question-container, #next').fadeIn('1500'); 
+			$('.headercontain, .question-container, #next, #qnum').fadeIn('1500'); 
 		});
 	qnumber = 0;
 	insertquestion(arrayname, qnumber);
@@ -60,6 +59,7 @@ function insertquestion(arrayname, qnumber) {
 	console.log('starting forloop');
 	for (var i = 0; i < arrayname.length; i++){
 		if (i === qnumber) {
+			$('#qnum').empty().append('Question ' + (i + 1));
 			//console.log('loading question ' + i);
 			$('.questions').prepend('<h2 id="q">' + arrayname[i].question + '</h2>');
 		for (var j = 0; j <= 4; j++) {
@@ -91,16 +91,30 @@ function checkanswer(arrayname, qnumber) {
 		}
 		else { 
 			console.log('user is wrong');
+			console.log('#correct is: ' + correct);
 			console.log(userselect + ' vs. ' +  arrayname[qnumber].correctAnswer);
 		}
 		// Move on to the next question
 		qnumber++;
 		insertquestion(arrayname, qnumber);
 		console.log('qnumber from checkanswer is now ' + qnumber);
+		theend(qnumber, correct);
 	});
 }
 //Function to display end results:
-function theend() {
-	
-	
+function theend(qnumber, correct) {
+	if (qnumber === 6) {
+		console.log('The quiz is over!');
+		$('#next, #qnum').hide();
+		if (correct <= 3) {
+			$('#flag').append('<h4> You got ' + correct + 'right. :( Try again! </h4>' );
+		}
+		else if (correct >= 4 || correct < 6) {
+			$('#flag').append('<h4> You got ' + correct + 'right! :) Try again! </h4>' );
+		}
+		else {
+			$('#flag').append('<h4> Awesome! You got them all right!');
+		}
+		$('#flag').show();
+	}
 }
