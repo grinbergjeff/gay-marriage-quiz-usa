@@ -32,12 +32,12 @@ $(document).ready(function(){
 		 correctAnswer: 'It is <i>so</i> ordered.'
 		}];
 	//Global Variables
-	qnumber = 0; // question number
-	correct = 0; // number of answers correct
+	 qnumber = 0; // question number
+	 correct = 0; // number of answers correct
 	//Functions
 	introduction(questions);
 	checkanswer(questions, qnumber);
-	nextquestion(questions, qnumber);
+	//nextquestion(questions, qnumber);
 	
 	
 	
@@ -55,52 +55,52 @@ function introduction(arrayname) {
 	});
 }
 //Function to insert questions and answers from objects
-function insertquestion(arrayname, numberq) {
+function insertquestion(arrayname, qnumber) {
 	$('.questions, #answers').empty();
 	console.log('starting forloop');
 	for (var i = 0; i < arrayname.length; i++){
-		if (i === numberq) {
-			console.log('loading question ' + i);
+		if (i === qnumber) {
+			//console.log('loading question ' + i);
 			$('.questions').prepend('<h2 id="q">' + arrayname[i].question + '</h2>');
 		for (var j = 0; j <= 4; j++) {
-			console.log('loading answer' + arrayname[i].answers[j]);
+			//console.log('loading answer' + arrayname[i].answers[j]);
 			$('#answers').append('<h3 class="anschoice">' + arrayname[i].answers[j] + '</h3>');
 			}
 		}
 		else {console.log('fail')};
 	}
 }
-//Function to increment what question the user is on when when they click next
-function nextquestion(arrayname ,questionnumber) {
-	$('#next').mousedown(function() {
-		questionnumber++;
-		//console.log('nextquestion....questionnumber is now ' + questionnumber);
-		insertquestion(arrayname, questionnumber);
-	});
-}
 // Function to select answer and check answer after hitting next button
-function checkanswer(arrayname, numberq) {
+function checkanswer(arrayname, qnumber) {
 	//Indicated Selected Answer
 	$('#answers').on('mousedown', '.anschoice',function() {
-		//console.log('Changing selected choice to green');
 		$(this).removeClass().addClass('select');
-		///var selectedchoice = $('.select').text();
-		//console.log('selected choice: ' + selectedchoice);
 		$(this).siblings().removeClass().addClass('anschoice');
 	});
 	//Change selected choice back to original
 	$('#answers').on('mousedown', '.select',function() {
-		//console.log('Changing selected choice back to normal');
 		$(this).removeClass().addClass('anschoice');
 	});
-	
+	//Below determines what to do when next button clicked
 	$('#next').mousedown(function() {
 		var userselect = $('.select').text();
 		console.log('userselect is: ' + userselect);
-		if (userselect === arrayname.[numberq].correctAnswer) {
+		if (userselect === arrayname[qnumber].correctAnswer) {
 			correct++;
 			console.log('The user is correct! ' + correct);
 		}
-		else { console.log('user is wrong');}
+		else { 
+			console.log('user is wrong');
+			console.log(userselect + ' vs. ' +  arrayname[qnumber].correctAnswer);
+		}
+		// Move on to the next question
+		qnumber++;
+		insertquestion(arrayname, qnumber);
+		console.log('qnumber from checkanswer is now ' + qnumber);
 	});
+}
+//Function to display end results:
+function theend() {
+	
+	
 }
