@@ -44,6 +44,7 @@ function introduction(arrayname) {
 			$('.headercontain, .question-container, #next, #qnum').fadeIn('1500'); 
 		});
 	qnumber = 0;
+	correct = 0;
 	insertquestion(arrayname, qnumber);
 	});
 }
@@ -98,19 +99,19 @@ function checkanswer(arrayname, qnumber) {
 			qnumber++;
 			insertquestion(arrayname, qnumber);
 			console.log('qnumber from checkanswer is now ' + qnumber);
-			theend(qnumber, correct);
+			theend(qnumber, correct, arrayname);
 		}
 		});
 }
 //Function to display end results:
-function theend(qnumber, correct) {
+function theend(qnumber, correct, arrayname) {
 	if (qnumber === 6) {
 		console.log('The quiz is over!');
 		$('#next, #qnum').hide();
 		if (correct <= 3) {
 			$('#flag').prepend('<h4> You got ' + correct + ' right. :( Try again! </h4>' );
 		}
-		else if (correct >= 4 || correct < 6) {
+		else if (correct >= 4 && correct < 6) {
 			$('#flag').prepend('<h4> You got ' + correct + ' right! :) Try again! </h4>' );
 		}
 		else {
@@ -118,4 +119,8 @@ function theend(qnumber, correct) {
 		}
 		$('#flag').show();
 	}
+	//Need to allow for reset!
+	$('#reset').mousedown(function() {
+		introduction(arrayname);
+	});
 }

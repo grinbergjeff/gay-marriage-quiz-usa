@@ -1,14 +1,15 @@
 body {
 	font-family: 'Lato', sans-serif;
-	background-image: url('/images/northern-lights.jpeg');
-	background-color: #BD5C3C;
+	/*background-image: url('/images/northern-lights.jpeg');*/
+	background-color: #84A5DD;
 	background-repeat: no-repeat;
 	background-size: cover;
 	text-align: center;
 	color: #F5F5F5
 }
 #begin {
-	background: rgba(0, 0, 0, 0.4);
+	/*background: rgba(49, 55, 65, 0.8);*/
+	border-radius: 5px;
 	margin: 70px;
 	top: 0;
 	bottom: 0;
@@ -23,7 +24,7 @@ body {
 }
 .headercontain {
 	padding-bottom: 1px;
-	background: rgba(0, 0, 0, 0.4);
+	/*background: rgba(77, 82, 91, 0.1);*/
 	border-radius: 8px;
 	width: 70%;
 	text-align: center;
@@ -35,33 +36,35 @@ body {
 	margin: 0 auto;
 }
 .questions {
-	width: 90%;
+	width: 100%;
 	height: 20%;
 	margin: 0 auto;
 }
 #q {
+	width: 0 auto;
 	margin-top: 26px;
 	padding-top: 20px;
 	height: 4.7rem;
-	background: rgba(0, 0, 0, 0.4);
+	background: rgba(23, 29, 41, 0.4);
 	border-radius: 8px;
 }
 .anschoice:hover {
 	cursor: pointer;
 }
 .anschoice {
+	width: 90%;
+	margin: 0 auto;
 	margin-top: 30px;
 	padding: 15px;
 	line-height: 50%;
-	background: rgba(0, 0, 0, 0.4);
+	background: rgba(77, 82, 91, 0.4);
 	border-radius: 8px;
 }
 .select {
 	margin-top: 30px;
 	padding: 15px;
 	line-height: 50%;
-	background-color: #5BB12F;
-	/*border: 1px solid #5BB12F;*/
+	background: rgba(20, 170, 120, .4);
 	border-radius: 8px;
 }
 #flag {
@@ -70,14 +73,14 @@ body {
 	margin: -250px auto;
 }
 #reset {
-	background: rgba(0, 0, 0, 0.4);
+	background-color: transparent;
 	margin: 10px;
 	color: white;
 	border: 2px solid white;
 	border-radius: 5px;
 }
 #qnum {
-	background: rgba(0, 0, 0, 0.4);
+	/*background: rgba(0, 0, 0, 0.4);*/
 	font-size: 20px;
 	width: 30%;
 	margin: 0 auto;
@@ -85,7 +88,7 @@ body {
 	border-radius: 4px;
 }
 #next, #begin-button {
-	background: rgba(0, 0, 0, 0.4);
+	background-color: transparent;
 	margin: 10px;
 	color: white;
 	border: 2px solid white;
